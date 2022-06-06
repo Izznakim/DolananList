@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Dolanan List</string>
+    <string name="game_pictures">Game pictures</string>
+    <string name="rating">Rating</string>
 </resources>
