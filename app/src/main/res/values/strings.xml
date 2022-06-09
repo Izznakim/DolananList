@@ -2,4 +2,5 @@
     <string name="app_name">Dolanan List</string>
     <string name="game_pictures">Game pictures</string>
     <string name="rating">Rating</string>
+    <string name="dataRating">%1$s / %2$d</string>
 </resources>
