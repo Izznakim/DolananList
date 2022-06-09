@@ -9,7 +9,10 @@ import com.example.dolananlist.R
 import com.example.dolananlist.ResultsItem
 import com.example.dolananlist.databinding.GameItemBinding
 
-class GameAdapter(private val listData: List<ResultsItem>) :
+class GameAdapter(
+    private val listData: List<ResultsItem>,
+    private val onItemClicked: (ResultsItem) -> Unit
+) :
     RecyclerView.Adapter<GameAdapter.ViewHolder>() {
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -38,6 +41,7 @@ class GameAdapter(private val listData: List<ResultsItem>) :
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val data = listData[position]
         holder.bind(data)
+        holder.itemView.setOnClickListener { onItemClicked(data) }
     }
 
     override fun getItemCount(): Int = listData.size

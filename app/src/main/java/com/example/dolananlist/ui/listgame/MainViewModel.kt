@@ -1,4 +1,4 @@
-package com.example.dolananlist.ui
+package com.example.dolananlist.ui.listgame
 
 import android.util.Log
 import androidx.lifecycle.LiveData
