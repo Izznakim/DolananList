@@ -4,6 +4,7 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.dolananlist.BuildConfig
 import com.example.dolananlist.GameResponse
 import com.example.dolananlist.ResultsItem
 import com.example.dolananlist.retrofit.ApiConfig
@@ -24,7 +25,7 @@ class MainViewModel : ViewModel() {
 
     private fun getListGame() {
         _isLoading.value = true
-        val client = ApiConfig.getApiService().getGameList("380488d9a4a4466c9a89fa586b0617ab")
+        val client = ApiConfig.getApiService().getGameList(BuildConfig.API_KEY)
         client.enqueue(object : Callback<GameResponse> {
             override fun onResponse(call: Call<GameResponse>, response: Response<GameResponse>) {
                 _isLoading.value = false
