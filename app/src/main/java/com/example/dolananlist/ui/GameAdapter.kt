@@ -24,7 +24,7 @@ class GameAdapter(
                     .into(imgGame)
                 tvName.text = data.name
                 tvPlatform.text = data.parentPlatforms.joinToString { it.platform.name }
-                tvGenres.text = data.genres.joinToString { it.name }
+                tvGenre.text = data.genres.joinToString { it.name }
                 tvRating.text = itemView.context.resources.getString(
                     R.string.dataRating,
                     data.rating.toString(),

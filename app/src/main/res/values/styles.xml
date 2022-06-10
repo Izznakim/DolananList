@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="h6">
+        <item name="android:letterSpacing">0.15</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="subtitle1">
+        <item name="android:letterSpacing">0.15</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="subtitle2">
+        <item name="android:letterSpacing">0.1</item>
+    </style>
+
+    <style name="body1">
+        <item name="android:textSize">16sp</item>
+        <item name="android:letterSpacing">0.5</item>
+    </style>
+
+    <style name="body2">
+        <item name="android:textSize">14sp</item>
+        <item name="android:letterSpacing">0.25</item>
+    </style>
+
+    <style name="caption">
+        <item name="android:textSize">12sp</item>
+        <item name="android:letterSpacing">0.4</item>
+    </style>
+</resources>
