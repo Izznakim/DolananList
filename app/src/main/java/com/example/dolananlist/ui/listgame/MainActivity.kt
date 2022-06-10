@@ -12,6 +12,7 @@ import com.example.dolananlist.ResultsItem
 import com.example.dolananlist.databinding.ActivityMainBinding
 import com.example.dolananlist.ui.GameAdapter
 import com.example.dolananlist.ui.detailgame.DetailActivity
+import com.example.dolananlist.ui.detailgame.DetailActivity.Companion.GAME_DETAIL
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -37,7 +38,9 @@ class MainActivity : AppCompatActivity() {
         }
         val gameAdapter = GameAdapter(listGame) {
             startActivity(
-                Intent(this, DetailActivity::class.java)
+                Intent(this, DetailActivity::class.java).also { intent ->
+                    intent.putExtra(GAME_DETAIL, it.id)
+                }
             )
         }
         binding.rvGame.adapter = gameAdapter

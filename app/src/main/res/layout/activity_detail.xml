@@ -1,155 +1,134 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.detailgame.DetailActivity">
 
-    <ImageView
-        android:id="@+id/iv_game"
-        android:layout_width="0dp"
-        android:layout_height="227dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_sharp_broken_image_24"
-        android:contentDescription="@string/game_pictures" />
-
-    <TextView
-        android:id="@+id/tv_name"
-        style="@style/h6"
-        android:layout_width="wrap_content"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/iv_game"
-        tools:text="Grand Theft Auto V" />
+        android:paddingBottom="16dp">
 
-    <TextView
-        android:id="@+id/tv_genre"
-        style="@style/subtitle2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_alt_name"
-        tools:text="Action, Adventure" />
+        <TextView
+            android:id="@+id/tv_tag"
+            style="@style/body2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="@+id/tv_publisher"
+            app:layout_constraintStart_toStartOf="@+id/tv_publisher"
+            app:layout_constraintTop_toBottomOf="@+id/tv_publisher"
+            tools:text="Tag: Singleplayer, Steam Achievements, Multiplayer, Atmospheric, Full controller support, Great Soundtrack, RPG, Co-op, Open World, cooperative, First-Person, Third Person, Funny, Sandbox, Comedy, Third-Person Shooter, Moddable, Crime, vr mod" />
 
-    <TextView
-        android:id="@+id/tv_platform"
-        style="@style/subtitle2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_genre"
-        tools:text="PC, PlayStation, Xbox" />
+        <TextView
+            android:id="@+id/tv_name"
+            style="@style/h6"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:gravity="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_game"
+            tools:text="Grand Theft Auto V" />
 
-    <TextView
-        android:id="@+id/tv_alt_name"
-        style="@style/caption"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        app:layout_constraintEnd_toEndOf="@+id/tv_name"
-        app:layout_constraintStart_toStartOf="@+id/tv_name"
-        app:layout_constraintTop_toBottomOf="@+id/tv_name"
-        tools:text="GTA 5, GTA V" />
+        <TextView
+            android:id="@+id/tv_publisher"
+            style="@style/body2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="@+id/tv_developer"
+            app:layout_constraintStart_toStartOf="@+id/tv_developer"
+            app:layout_constraintTop_toBottomOf="@+id/tv_developer"
+            tools:text="Publisher: Rockstar Games" />
 
-    <TextView
-        android:id="@+id/tv_desc"
-        style="@style/subtitle2"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_platform"
-        tools:justificationMode="inter_word"
-        tools:text='a' />
+        <ImageView
+            android:id="@+id/iv_game"
+            android:layout_width="0dp"
+            android:layout_height="202.5dp"
+            android:contentDescription="@string/game_pictures"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_sharp_photo_86" />
 
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        app:layout_constraintStart_toStartOf="@+id/tv_desc"
-        app:layout_constraintTop_toBottomOf="@+id/tv_desc"
-        app:srcCompat="@drawable/ic_sharp_star_rate_24"
-        android:contentDescription="@string/rating" />
+        <TextView
+            android:id="@+id/tv_platform"
+            style="@style/subtitle2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            app:layout_constraintEnd_toEndOf="@+id/tv_genre"
+            app:layout_constraintStart_toStartOf="@+id/tv_genre"
+            app:layout_constraintTop_toBottomOf="@+id/tv_genre"
+            tools:text="PC, PlayStation, Xbox" />
 
-    <TextView
-        android:id="@+id/tv_rating"
-        style="@style/body2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView3"
-        app:layout_constraintStart_toEndOf="@+id/imageView3"
-        app:layout_constraintTop_toTopOf="@+id/imageView3"
-        tools:text="4.48/5" />
+        <TextView
+            android:id="@+id/tv_developer"
+            style="@style/body2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="@+id/tv_release"
+            app:layout_constraintStart_toStartOf="@+id/tv_release"
+            app:layout_constraintTop_toBottomOf="@+id/tv_release"
+            tools:text="Developer: Rockstar North, Rockstar Games" />
 
-    <TextView
-        android:id="@+id/tv_rating_text"
-        style="@style/body2"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        app:layout_constraintEnd_toEndOf="@+id/tv_desc"
-        app:layout_constraintStart_toEndOf="@+id/tv_rating"
-        app:layout_constraintTop_toTopOf="@+id/tv_rating"
-        tools:text="(recommended)" />
+        <TextView
+            android:id="@+id/tv_release"
+            style="@style/body2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="@+id/tv_desc"
+            app:layout_constraintStart_toStartOf="@+id/tv_desc"
+            app:layout_constraintTop_toBottomOf="@+id/tv_desc"
+            tools:text="Release date: 2013-09-17" />
 
-    <TextView
-        android:id="@+id/tv_release"
-        style="@style/body2"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        app:layout_constraintEnd_toEndOf="@+id/tv_rating_text"
-        app:layout_constraintStart_toStartOf="@+id/imageView3"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3"
-        tools:text="Release date: 2013-09-17" />
+        <TextView
+            android:id="@+id/tv_genre"
+            style="@style/subtitle2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            app:layout_constraintEnd_toEndOf="@+id/tv_alt_name"
+            app:layout_constraintStart_toStartOf="@+id/tv_alt_name"
+            app:layout_constraintTop_toBottomOf="@+id/tv_alt_name"
+            tools:text="Action, Adventure" />
 
-    <TextView
-        android:id="@+id/tv_developer"
-        style="@style/body2"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        app:layout_constraintEnd_toEndOf="@+id/tv_release"
-        app:layout_constraintStart_toStartOf="@+id/tv_release"
-        app:layout_constraintTop_toBottomOf="@+id/tv_release"
-        tools:text="Developer: Rockstar North, Rockstar Games" />
+        <TextView
+            android:id="@+id/tv_desc"
+            style="@style/subtitle2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_platform"
+            tools:justificationMode="inter_word"
+            tools:text='a' />
 
-    <TextView
-        android:id="@+id/tv_publisher"
-        style="@style/body2"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        app:layout_constraintEnd_toEndOf="@+id/tv_developer"
-        app:layout_constraintStart_toStartOf="@+id/tv_developer"
-        app:layout_constraintTop_toBottomOf="@+id/tv_developer"
-        tools:text="Publisher: Rockstar Games" />
+        <TextView
+            android:id="@+id/tv_alt_name"
+            style="@style/caption"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            app:layout_constraintEnd_toEndOf="@+id/tv_name"
+            app:layout_constraintStart_toStartOf="@+id/tv_name"
+            app:layout_constraintTop_toBottomOf="@+id/tv_name"
+            tools:text="GTA 5, GTA V" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <TextView
-        android:id="@+id/tv_tag"
-        style="@style/body2"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        app:layout_constraintEnd_toEndOf="@+id/tv_publisher"
-        app:layout_constraintStart_toStartOf="@+id/tv_publisher"
-        app:layout_constraintTop_toBottomOf="@+id/tv_publisher"
-        tools:text="Tag: Singleplayer, Steam Achievements, Multiplayer, Atmospheric, Full controller support, Great Soundtrack, RPG, Co-op, Open World, cooperative, First-Person, Third Person, Funny, Sandbox, Comedy, Third-Person Shooter, Moddable, Crime, vr mod" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

@@ -4,4 +4,7 @@
     <string name="rating">Rating</string>
     <string name="dataRating">%1$s / %2$d</string>
     <string name="release_date">Release Date: %1$s</string>
+    <string name="developer">Developer: %1$s</string>
+    <string name="publisher">Publisher: %1$s</string>
+    <string name="tag">Tag: %1$s</string>
 </resources>
