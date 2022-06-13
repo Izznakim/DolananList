@@ -5,8 +5,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.dolananlist.BuildConfig
-import com.example.dolananlist.GameResponse
-import com.example.dolananlist.ResultsItem
+import com.example.dolananlist.model.GameResponse
+import com.example.dolananlist.model.ResultsItem
 import com.example.dolananlist.retrofit.ApiConfig
 import retrofit2.Call
 import retrofit2.Callback

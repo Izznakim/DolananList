@@ -1,6 +1,6 @@
 package com.example.dolananlist.retrofit
 
-import com.example.dolananlist.GameResponse
+import com.example.dolananlist.model.GameResponse
 import com.example.dolananlist.model.GameDetailResponse
 import retrofit2.Call
 import retrofit2.http.GET

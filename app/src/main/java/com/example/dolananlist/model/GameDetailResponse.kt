@@ -11,7 +11,7 @@ data class GameDetailResponse(
     val developers: List<DevelopersItem>,
 
     @field:SerializedName("genres")
-    val genres: List<GenresItem>,
+    val genres: List<GenresDetailItem>,
 
     @field:SerializedName("name")
     val name: String,
@@ -35,13 +35,13 @@ data class GameDetailResponse(
     val tags: List<TagsItem>
 )
 
-data class GenresItem(
+data class GenresDetailItem(
 
     @field:SerializedName("name")
     val name: String
 )
 
-data class Platform(
+data class PlatformDetail(
 
     @field:SerializedName("name")
     val name: String
@@ -50,7 +50,7 @@ data class Platform(
 data class PlatformsItem(
 
     @field:SerializedName("platform")
-    val platform: Platform
+    val platform: PlatformDetail
 )
 
 data class PublishersItem(

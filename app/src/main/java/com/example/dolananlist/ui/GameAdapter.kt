@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.dolananlist.R
-import com.example.dolananlist.ResultsItem
+import com.example.dolananlist.model.ResultsItem
 import com.example.dolananlist.databinding.GameItemBinding
 
 class GameAdapter(
@@ -25,11 +25,6 @@ class GameAdapter(
                 tvName.text = data.name
                 tvPlatform.text = data.parentPlatforms.joinToString { it.platform.name }
                 tvGenre.text = data.genres.joinToString { it.name }
-                tvRating.text = itemView.context.resources.getString(
-                    R.string.dataRating,
-                    data.rating.toString(),
-                    data.ratingTop
-                )
             }
         }
     }

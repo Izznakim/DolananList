@@ -3,8 +3,7 @@ package com.example.dolananlist.ui.detailgame
 import android.graphics.text.LineBreaker.JUSTIFICATION_MODE_INTER_WORD
 import android.os.Build
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuItem
+import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
@@ -27,6 +26,9 @@ class DetailActivity : AppCompatActivity() {
 
         detailViewModel.getGameDetail(id)
         setupView()
+        detailViewModel.isLoading.observe(this) {
+            showLoading(it)
+        }
     }
 
     private fun setupView() {
@@ -50,6 +52,16 @@ class DetailActivity : AppCompatActivity() {
                     resources.getString(R.string.publisher, it.publishers.joinToString { it.name })
                 tvTag.text = resources.getString(R.string.tag, it.tags.joinToString { it.name })
             }
+        }
+    }
+
+    private fun showLoading(isLoading: Boolean) {
+        if (isLoading) {
+            binding.progressBar.visibility = View.VISIBLE
+        } else {
+            binding.progressBar.visibility = View.GONE
+            binding.fabFavorite.visibility = View.VISIBLE
+            binding.ivGame.visibility = View.VISIBLE
         }
     }
 

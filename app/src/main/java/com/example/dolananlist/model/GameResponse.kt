@@ -1,4 +1,4 @@
-package com.example.dolananlist
+package com.example.dolananlist.model
 
 import com.google.gson.annotations.SerializedName
 
@@ -22,17 +22,11 @@ data class ResultsItem(
     @field:SerializedName("background_image")
     val backgroundImage: String,
 
-    @field:SerializedName("rating_top")
-    val ratingTop: Int,
-
     @field:SerializedName("genres")
     val genres: List<GenresItem>,
 
     @field:SerializedName("name")
     val name: String,
-
-    @field:SerializedName("rating")
-    val rating: Double,
 
     @field:SerializedName("parent_platforms")
     val parentPlatforms: List<ParentPlatformsItem>
