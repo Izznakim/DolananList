@@ -1,18 +1,19 @@
 package com.example.dolananlist.ui.listgame
 
 import android.content.Intent
-import android.content.pm.ApplicationInfo
-import android.content.pm.PackageManager
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.dolananlist.R
 import com.example.dolananlist.ResultsItem
 import com.example.dolananlist.databinding.ActivityMainBinding
 import com.example.dolananlist.ui.GameAdapter
 import com.example.dolananlist.ui.detailgame.DetailActivity
 import com.example.dolananlist.ui.detailgame.DetailActivity.Companion.GAME_DETAIL
+import com.example.dolananlist.ui.gamefavorite.FavoriteActivity
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -28,6 +29,24 @@ class MainActivity : AppCompatActivity() {
 
         mainViewModel.listGame.observe(this) {
             setListGame(it)
+        }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        val inflater = menuInflater
+        inflater.inflate(R.menu.main_menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.favorite -> {
+                Intent(this, FavoriteActivity::class.java).also {
+                    startActivity(it)
+                }
+                true
+            }
+            else -> true
         }
     }
 

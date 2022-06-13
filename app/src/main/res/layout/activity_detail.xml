@@ -11,6 +11,18 @@
         android:layout_height="wrap_content"
         android:paddingBottom="16dp">
 
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_favorite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_platform"
+            app:layout_constraintEnd_toEndOf="@+id/tv_name"
+            app:layout_constraintTop_toTopOf="@+id/tv_alt_name"
+            app:srcCompat="@drawable/ic_sharp_favorite_24"
+            android:focusable="true"
+            android:contentDescription="@string/add_to_favorite" />
+
         <TextView
             android:id="@+id/tv_tag"
             style="@style/body2"
@@ -124,8 +136,9 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
             android:gravity="center"
-            app:layout_constraintEnd_toEndOf="@+id/tv_name"
+            app:layout_constraintEnd_toStartOf="@+id/fab_favorite"
             app:layout_constraintStart_toStartOf="@+id/tv_name"
             app:layout_constraintTop_toBottomOf="@+id/tv_name"
             tools:text="GTA 5, GTA V" />

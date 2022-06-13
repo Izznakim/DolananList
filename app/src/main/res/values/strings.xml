@@ -7,4 +7,6 @@
     <string name="developer">Developer: %1$s</string>
     <string name="publisher">Publisher: %1$s</string>
     <string name="tag">Tag: %1$s</string>
+    <string name="list_favorite">List Favorite</string>
+    <string name="add_to_favorite">Add to Favorite</string>
 </resources>
