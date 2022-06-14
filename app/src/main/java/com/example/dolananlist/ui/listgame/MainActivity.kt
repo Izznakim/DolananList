@@ -9,12 +9,12 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.dolananlist.R
-import com.example.dolananlist.model.ResultsItem
+import com.example.dolananlist.data.remote.response.ResultsItem
 import com.example.dolananlist.databinding.ActivityMainBinding
 import com.example.dolananlist.ui.GameAdapter
 import com.example.dolananlist.ui.detailgame.DetailActivity
 import com.example.dolananlist.ui.detailgame.DetailActivity.Companion.GAME_DETAIL
-import com.example.dolananlist.ui.gamefavorite.FavoriteActivity
+import com.example.dolananlist.ui.gamewishlist.WishlistActivity
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -45,8 +45,8 @@ class MainActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
-            R.id.favorite -> {
-                Intent(this, FavoriteActivity::class.java).also {
+            R.id.wishlist -> {
+                Intent(this, WishlistActivity::class.java).also {
                     startActivity(it)
                 }
                 true

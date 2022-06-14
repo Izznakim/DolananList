@@ -1,8 +1,11 @@
-package com.example.dolananlist.model
+package com.example.dolananlist.data.remote.response
 
 import com.google.gson.annotations.SerializedName
 
 data class GameDetailResponse(
+
+    @field:SerializedName("id")
+    val id: Int,
 
     @field:SerializedName("background_image")
     val backgroundImage: String,

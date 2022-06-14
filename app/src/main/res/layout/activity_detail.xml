@@ -22,17 +22,17 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fab_favorite"
+            android:id="@+id/fab_wishlist"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:clickable="true"
-            android:contentDescription="@string/add_to_favorite"
+            android:contentDescription="@string/add_to_wishlist"
             android:focusable="true"
             android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="@+id/tv_platform"
             app:layout_constraintEnd_toEndOf="@+id/tv_name"
             app:layout_constraintTop_toTopOf="@+id/tv_alt_name"
-            app:srcCompat="@drawable/ic_sharp_favorite_24" />
+            app:srcCompat="@drawable/ic_sharp_wish_24" />
 
         <TextView
             android:id="@+id/tv_tag"
@@ -150,7 +150,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:gravity="center"
-            app:layout_constraintEnd_toStartOf="@+id/fab_favorite"
+            app:layout_constraintEnd_toStartOf="@+id/fab_wishlist"
             app:layout_constraintStart_toStartOf="@+id/tv_name"
             app:layout_constraintTop_toBottomOf="@+id/tv_name"
             tools:text="GTA 5, GTA V" />

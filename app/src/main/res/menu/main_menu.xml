@@ -3,8 +3,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/favorite"
-        android:icon="@drawable/ic_sharp_favorite_24"
-        android:title="@string/list_favorite"
+        android:id="@+id/wishlist"
+        android:icon="@drawable/ic_sharp_wish_24"
+        android:title="@string/list_wishlist"
         app:showAsAction="always" />
 </menu>

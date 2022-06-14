@@ -1,4 +1,4 @@
-package com.example.dolananlist.model
+package com.example.dolananlist.data.remote.response
 
 import com.google.gson.annotations.SerializedName
 

@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.dolananlist.R
-import com.example.dolananlist.model.ResultsItem
+import com.example.dolananlist.data.remote.response.ResultsItem
 import com.example.dolananlist.databinding.GameItemBinding
 
 class GameAdapter(

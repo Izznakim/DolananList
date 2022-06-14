@@ -1,4 +1,4 @@
-package com.example.dolananlist.retrofit
+package com.example.dolananlist.data.remote.retrofit
 
 import androidx.viewbinding.BuildConfig
 import okhttp3.OkHttpClient

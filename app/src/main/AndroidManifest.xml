@@ -16,7 +16,7 @@
         android:theme="@style/Theme.DolananList"
         tools:targetApi="31">
         <activity
-            android:name=".ui.gamefavorite.FavoriteActivity"
+            android:name=".ui.gamewishlist.WishlistActivity"
             android:exported="false" />
         <activity
             android:name=".ui.detailgame.DetailActivity"
