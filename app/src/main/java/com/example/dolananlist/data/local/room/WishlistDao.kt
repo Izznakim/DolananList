@@ -1,5 +1,6 @@
 package com.example.dolananlist.data.local.room
 
+import androidx.lifecycle.LiveData
 import androidx.room.*
 import com.example.dolananlist.data.local.entity.WishlistEntity
 
@@ -7,6 +8,9 @@ import com.example.dolananlist.data.local.entity.WishlistEntity
 interface WishlistDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertGameToWishlist(wishlist: List<WishlistEntity>)
+
+    @Query("SELECT * FROM wishlist")
+    fun getWishlist(): LiveData<List<WishlistEntity>>
 
     @Query("SELECT EXISTS(SELECT * FROM wishlist WHERE id LIKE '%' || :id || '%')")
     suspend fun checkExistOrNot(id: Int): Boolean

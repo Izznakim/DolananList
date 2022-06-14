@@ -1,12 +1,68 @@
 package com.example.dolananlist.ui.gamewishlist
 
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
 import android.os.Bundle
-import com.example.dolananlist.R
+import android.view.View
+import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.dolananlist.data.Result
+import com.example.dolananlist.data.local.entity.WishlistEntity
+import com.example.dolananlist.databinding.ActivityWishlistBinding
+import com.example.dolananlist.ui.WishlistAdapter
+import com.example.dolananlist.ui.detailgame.DetailActivity
+import com.example.dolananlist.utils.ViewModelFactory
+import com.google.android.material.snackbar.Snackbar
 
 class WishlistActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityWishlistBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_wishlist)
+        binding = ActivityWishlistBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        val factory: ViewModelFactory = ViewModelFactory.getInstance(this)
+        val wishlistViewModel: WishlistViewModel by viewModels { factory }
+
+        supportActionBar?.title = "Wishlist"
+
+        with(binding) {
+            rvWishlist.layoutManager = LinearLayoutManager(this@WishlistActivity)
+            rvWishlist.setHasFixedSize(true)
+
+            wishlistViewModel.getWishlist().observe(this@WishlistActivity) {
+                when (it) {
+                    is Result.Loading -> progressBar.visibility = View.VISIBLE
+                    is Result.Success -> {
+                        progressBar.visibility = View.GONE
+                        val wishlist = it.data
+                        rvWishlist.adapter = setWishlist(wishlist)
+                    }
+                    is Result.Error -> {
+                        progressBar.visibility = View.GONE
+                        Snackbar.make(
+                            window.decorView.rootView,
+                            "Terjadi Kesalahan ${it.error}",
+                            Snackbar.LENGTH_SHORT
+                        ).show()
+                    }
+                }
+            }
+        }
+    }
+
+    private fun setWishlist(wishlist: List<WishlistEntity>): WishlistAdapter {
+        val listWish = ArrayList<WishlistEntity>()
+        for (game in wishlist) {
+            listWish.add(game)
+        }
+        return WishlistAdapter(wishlist) {
+            startActivity(
+                Intent(this, DetailActivity::class.java).also { intent ->
+                    intent.putExtra(DetailActivity.GAME_DETAIL, it.id)
+                }
+            )
+        }
     }
 }

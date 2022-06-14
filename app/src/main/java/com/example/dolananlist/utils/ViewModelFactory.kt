@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.dolananlist.data.WishlistRepository
 import com.example.dolananlist.di.Injection
 import com.example.dolananlist.ui.detailgame.DetailViewModel
+import com.example.dolananlist.ui.gamewishlist.WishlistViewModel
 
 class ViewModelFactory private constructor(private val wishlistRepository: WishlistRepository) :
     ViewModelProvider.NewInstanceFactory() {
@@ -13,6 +14,8 @@ class ViewModelFactory private constructor(private val wishlistRepository: Wishl
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(DetailViewModel::class.java)) {
             return DetailViewModel(wishlistRepository) as T
+        } else if (modelClass.isAssignableFrom(WishlistViewModel::class.java)) {
+            return WishlistViewModel(wishlistRepository) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class: ${modelClass.name}")
     }
