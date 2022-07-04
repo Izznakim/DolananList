@@ -3,7 +3,6 @@ package com.example.dolananlist.core.ui
 import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.example.dolananlist.core.data.WishlistRepository
 import com.example.dolananlist.core.di.Injection
 import com.example.dolananlist.detailgame.DetailViewModel
 import com.example.dolananlist.gamewishlist.WishlistViewModel

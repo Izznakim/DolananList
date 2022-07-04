@@ -6,7 +6,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.dolananlist.BuildConfig
-import com.example.dolananlist.core.data.WishlistRepository
 import com.example.dolananlist.core.data.remote.response.GameDetailResponse
 import com.example.dolananlist.core.data.remote.retrofit.ApiConfig
 import com.example.dolananlist.gamewishlist.domain.usecase.WishlistUseCase

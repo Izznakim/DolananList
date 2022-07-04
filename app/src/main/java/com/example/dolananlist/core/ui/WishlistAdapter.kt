@@ -6,7 +6,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.dolananlist.R
-import com.example.dolananlist.core.data.local.entity.WishlistEntity
 import com.example.dolananlist.databinding.GameItemBinding
 import com.example.dolananlist.gamewishlist.domain.model.Wishlist
 

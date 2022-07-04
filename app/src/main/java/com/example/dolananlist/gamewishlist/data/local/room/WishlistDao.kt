@@ -1,8 +1,8 @@
-package com.example.dolananlist.core.data.local.room
+package com.example.dolananlist.gamewishlist.data.local.room
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
-import com.example.dolananlist.core.data.local.entity.WishlistEntity
+import com.example.dolananlist.gamewishlist.data.local.entity.WishlistEntity
 
 @Dao
 interface WishlistDao {

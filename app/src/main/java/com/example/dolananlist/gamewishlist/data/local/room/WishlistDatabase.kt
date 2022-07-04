@@ -1,10 +1,10 @@
-package com.example.dolananlist.core.data.local.room
+package com.example.dolananlist.gamewishlist.data.local.room
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.example.dolananlist.core.data.local.entity.WishlistEntity
+import com.example.dolananlist.gamewishlist.data.local.entity.WishlistEntity
 
 @Database(entities = [WishlistEntity::class], version = 1, exportSchema = false)
 abstract class WishlistDatabase : RoomDatabase() {
