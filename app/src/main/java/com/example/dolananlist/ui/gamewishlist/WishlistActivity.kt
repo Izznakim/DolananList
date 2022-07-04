@@ -8,18 +8,18 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.dolananlist.data.Result
 import com.example.dolananlist.data.local.entity.WishlistEntity
-import com.example.dolananlist.databinding.ActivityWishlistBinding
+import com.example.dolananlist.databinding.ActivityMainBinding
 import com.example.dolananlist.ui.WishlistAdapter
 import com.example.dolananlist.ui.detailgame.DetailActivity
 import com.example.dolananlist.utils.ViewModelFactory
 import com.google.android.material.snackbar.Snackbar
 
 class WishlistActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityWishlistBinding
+    private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityWishlistBinding.inflate(layoutInflater)
+        binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         val factory: ViewModelFactory = ViewModelFactory.getInstance(this)
@@ -28,8 +28,8 @@ class WishlistActivity : AppCompatActivity() {
         supportActionBar?.title = "Wishlist"
 
         with(binding) {
-            rvWishlist.layoutManager = LinearLayoutManager(this@WishlistActivity)
-            rvWishlist.setHasFixedSize(true)
+            rvGame.layoutManager = LinearLayoutManager(this@WishlistActivity)
+            rvGame.setHasFixedSize(true)
 
             wishlistViewModel.getWishlist().observe(this@WishlistActivity) {
                 when (it) {
@@ -37,7 +37,7 @@ class WishlistActivity : AppCompatActivity() {
                     is Result.Success -> {
                         progressBar.visibility = View.GONE
                         val wishlist = it.data
-                        rvWishlist.adapter = setWishlist(wishlist)
+                        rvGame.adapter = setWishlist(wishlist)
                     }
                     is Result.Error -> {
                         progressBar.visibility = View.GONE

@@ -31,15 +31,15 @@
             android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="@+id/tv_platform"
             app:layout_constraintEnd_toEndOf="@+id/tv_name"
-            app:layout_constraintTop_toTopOf="@+id/tv_alt_name"
+            app:layout_constraintTop_toTopOf="@+id/tv_genre"
             app:srcCompat="@drawable/ic_sharp_wish_24" />
 
         <TextView
             android:id="@+id/tv_tag"
-            style="@style/body2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:textAppearance="@style/TextAppearance.Material3.BodySmall"
             app:layout_constraintEnd_toEndOf="@+id/tv_publisher"
             app:layout_constraintStart_toStartOf="@+id/tv_publisher"
             app:layout_constraintTop_toBottomOf="@+id/tv_publisher"
@@ -47,13 +47,14 @@
 
         <TextView
             android:id="@+id/tv_name"
-            style="@style/h6"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="8dp"
             android:gravity="center"
+            android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/iv_game"
@@ -61,10 +62,10 @@
 
         <TextView
             android:id="@+id/tv_publisher"
-            style="@style/body2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:textAppearance="@style/TextAppearance.Material3.BodySmall"
             app:layout_constraintEnd_toEndOf="@+id/tv_developer"
             app:layout_constraintStart_toStartOf="@+id/tv_developer"
             app:layout_constraintTop_toBottomOf="@+id/tv_developer"
@@ -83,11 +84,11 @@
 
         <TextView
             android:id="@+id/tv_platform"
-            style="@style/subtitle2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:gravity="center"
+            android:textAppearance="@style/TextAppearance.Material3.BodyLarge"
             app:layout_constraintEnd_toEndOf="@+id/tv_genre"
             app:layout_constraintStart_toStartOf="@+id/tv_genre"
             app:layout_constraintTop_toBottomOf="@+id/tv_genre"
@@ -95,10 +96,10 @@
 
         <TextView
             android:id="@+id/tv_developer"
-            style="@style/body2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:textAppearance="@style/TextAppearance.Material3.BodySmall"
             app:layout_constraintEnd_toEndOf="@+id/tv_release"
             app:layout_constraintStart_toStartOf="@+id/tv_release"
             app:layout_constraintTop_toBottomOf="@+id/tv_release"
@@ -106,10 +107,10 @@
 
         <TextView
             android:id="@+id/tv_release"
-            style="@style/body2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="16dp"
+            android:textAppearance="@style/TextAppearance.Material3.BodySmall"
             app:layout_constraintEnd_toEndOf="@+id/tv_desc"
             app:layout_constraintStart_toStartOf="@+id/tv_desc"
             app:layout_constraintTop_toBottomOf="@+id/tv_desc"
@@ -117,24 +118,25 @@
 
         <TextView
             android:id="@+id/tv_genre"
-            style="@style/subtitle2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
             android:gravity="center"
-            app:layout_constraintEnd_toEndOf="@+id/tv_alt_name"
-            app:layout_constraintStart_toStartOf="@+id/tv_alt_name"
-            app:layout_constraintTop_toBottomOf="@+id/tv_alt_name"
+            android:textAppearance="@style/TextAppearance.Material3.BodyLarge"
+            app:layout_constraintEnd_toStartOf="@+id/fab_wishlist"
+            app:layout_constraintStart_toStartOf="@+id/view"
+            app:layout_constraintTop_toBottomOf="@+id/view"
             tools:text="Action, Adventure" />
 
         <TextView
             android:id="@+id/tv_desc"
-            style="@style/subtitle2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="8dp"
+            android:textAppearance="@style/TextAppearance.Material3.BodyMedium"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -144,16 +146,36 @@
 
         <TextView
             android:id="@+id/tv_alt_name"
-            style="@style/caption"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
             android:gravity="center"
-            app:layout_constraintEnd_toStartOf="@+id/fab_wishlist"
+            android:textAppearance="@style/TextAppearance.Material3.TitleSmall"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/tv_name"
             app:layout_constraintStart_toStartOf="@+id/tv_name"
             app:layout_constraintTop_toBottomOf="@+id/tv_name"
             tools:text="GTA 5, GTA V" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/barrier3"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:barrierDirection="bottom"
+            app:constraint_referenced_ids="tv_alt_name"
+            tools:layout_editor_absoluteY="331dp" />
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="8dp"
+            android:background="#000000"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="@+id/tv_name"
+            app:layout_constraintStart_toStartOf="@+id/tv_name"
+            app:layout_constraintTop_toBottomOf="@+id/barrier3" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </ScrollView>

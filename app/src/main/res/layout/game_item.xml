@@ -47,31 +47,31 @@
 
                 <TextView
                     android:id="@+id/tv_name"
-                    style="@style/subtitle1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ellipsize="end"
                     android:maxLines="1"
+                    android:textAppearance="@style/TextAppearance.Material3.LabelLarge"
                     tools:text="Grand Theft Auto V" />
 
                 <TextView
                     android:id="@+id/tv_platform"
-                    style="@style/subtitle2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:ellipsize="end"
                     android:maxLines="1"
+                    android:textAppearance="@style/TextAppearance.Material3.LabelMedium"
                     app:layout_constraintBottom_toBottomOf="parent"
                     tools:text="PC, PlayStation, Xbox" />
 
                 <TextView
                     android:id="@+id/tv_genre"
-                    style="@style/subtitle2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ellipsize="end"
                     android:maxLines="1"
+                    android:textAppearance="@style/TextAppearance.Material3.LabelMedium"
                     tools:text="Action, Adventure" />
             </LinearLayout>
 

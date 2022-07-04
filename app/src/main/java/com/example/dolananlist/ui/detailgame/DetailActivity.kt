@@ -55,7 +55,11 @@ class DetailActivity : AppCompatActivity() {
                     .load(game.backgroundImage)
                     .into(ivGame)
                 tvName.text = game.name
-                tvAltName.text = game.alternativeNames.joinToString { it }
+                if (game.alternativeNames.isEmpty()) {
+                    tvAltName.visibility = View.GONE
+                }else{
+                    tvAltName.text = game.alternativeNames.joinToString { it }
+                }
                 tvGenre.text = game.genres.joinToString { it.name }
                 tvPlatform.text = game.platforms.joinToString { it.platform.name }
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
@@ -132,6 +136,7 @@ class DetailActivity : AppCompatActivity() {
             binding.progressBar.visibility = View.VISIBLE
         } else {
             binding.progressBar.visibility = View.GONE
+            binding.view.visibility = View.VISIBLE
             binding.fabWishlist.visibility = View.VISIBLE
             binding.ivGame.visibility = View.VISIBLE
         }
