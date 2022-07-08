@@ -3,12 +3,13 @@ package com.example.dolananlist.gamewishlist.data.local
 import androidx.lifecycle.LiveData
 import com.example.dolananlist.gamewishlist.data.local.entity.WishlistEntity
 import com.example.dolananlist.gamewishlist.data.local.room.WishlistDao
+import kotlinx.coroutines.flow.Flow
 
 class LocalDataSource private constructor(private val wishlistDao: WishlistDao) {
     fun insertGameToWishlist(wishlist: List<WishlistEntity>) =
         wishlistDao.insertGameToWishlist(wishlist)
 
-    fun getWishlist(): LiveData<List<WishlistEntity>> = wishlistDao.getWishlist()
+    fun getWishlist(): Flow<List<WishlistEntity>> = wishlistDao.getWishlist()
 
     suspend fun checkExistOrNot(id: Int): Boolean = wishlistDao.checkExistOrNot(id)
 

@@ -1,70 +1,41 @@
 package com.example.dolananlist.core.data.remote
 
-import android.util.Log
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import com.example.dolananlist.BuildConfig
 import com.example.dolananlist.core.data.remote.response.GameDetailResponse
-import com.example.dolananlist.core.data.remote.response.GameResponse
 import com.example.dolananlist.core.data.remote.response.ResultsItem
 import com.example.dolananlist.core.data.remote.retrofit.ApiResponse
 import com.example.dolananlist.core.data.remote.retrofit.ApiService
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.flowOn
 
 class RemoteDataSource private constructor(private val apiService: ApiService) {
-    fun getGameList(): LiveData<ApiResponse<List<ResultsItem>>> {
-        val resultData = MutableLiveData<ApiResponse<List<ResultsItem>>>()
-
-        resultData.value=ApiResponse.Loading
-        val client = apiService.getGameList(BuildConfig.API_KEY)
-        client.enqueue(object : Callback<GameResponse> {
-            override fun onResponse(call: Call<GameResponse>, response: Response<GameResponse>) {
-                if (response.isSuccessful) {
-                    val listGame = response.body()?.results
-                    resultData.value =
-                        if (listGame != null) ApiResponse.Success(listGame) else ApiResponse.Empty
+    fun getGameList(): Flow<ApiResponse<List<ResultsItem>>> {
+        return flow {
+            try {
+                val response = apiService.getGameList(BuildConfig.API_KEY)
+                val dataArray = response.results
+                if (dataArray.isNotEmpty()) {
+                    emit(ApiResponse.Success(dataArray))
                 } else {
-                    Log.d("getListGame", "onResponse: Something Error")
+                    emit(ApiResponse.Empty)
                 }
+            } catch (e: Exception) {
+                emit(ApiResponse.Error(e.toString()))
             }
-
-            override fun onFailure(call: Call<GameResponse>, t: Throwable) {
-                resultData.value = ApiResponse.Error(t.message.toString())
-                Log.d("getListGame", "onFailure: ${t.message}")
-            }
-        })
-
-        return resultData
+        }.flowOn(Dispatchers.IO)
     }
 
-    fun getGameDetail(id: Int): LiveData<ApiResponse<GameDetailResponse>> {
-        val resultData = MutableLiveData<ApiResponse<GameDetailResponse>>()
-
-        resultData.value=ApiResponse.Loading
-        val client = apiService.getGameDetail(id, BuildConfig.API_KEY)
-        client.enqueue(object : Callback<GameDetailResponse> {
-            override fun onResponse(
-                call: Call<GameDetailResponse>,
-                response: Response<GameDetailResponse>
-            ) {
-                if (response.isSuccessful) {
-                    val gameDetail = response.body()
-                    resultData.value =
-                        if (gameDetail != null) ApiResponse.Success(gameDetail) else ApiResponse.Empty
-                } else {
-                    Log.d("getGameDetail", "onResponse: Something Error")
-                }
+    fun getGameDetail(id: Int): Flow<ApiResponse<GameDetailResponse>> {
+        return flow {
+            try {
+                val response = apiService.getGameDetail(id, BuildConfig.API_KEY)
+                emit(ApiResponse.Success(response))
+            } catch (e: Exception) {
+                emit(ApiResponse.Error(e.toString()))
             }
-
-            override fun onFailure(call: Call<GameDetailResponse>, t: Throwable) {
-                resultData.value = ApiResponse.Error(t.message.toString())
-                Log.d("getGameDetail", "onFailure: ${t.message}")
-            }
-        })
-
-        return resultData
+        }.flowOn(Dispatchers.IO)
     }
 
     companion object {

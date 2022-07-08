@@ -1,10 +1,7 @@
 package com.example.dolananlist.detailgame
 
 import android.util.Log
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import com.example.dolananlist.BuildConfig
 import com.example.dolananlist.core.data.remote.response.GameDetailResponse
 import com.example.dolananlist.core.data.remote.retrofit.ApiConfig
@@ -21,7 +18,7 @@ class DetailViewModel(private val wishlistUseCase: WishlistUseCase, private val 
     val isWish: LiveData<Boolean> = _isWish
 
     fun getGameDetail(id: Int) =
-        gameUseCase.getGameDetail(id)
+        gameUseCase.getGameDetail(id).asLiveData()
 
     fun setGameToWishlist(game: GameDetailResponse) {
         wishlistUseCase.setGameWishlist(game)

@@ -4,6 +4,7 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.asLiveData
 import com.example.dolananlist.BuildConfig
 import com.example.dolananlist.core.data.remote.response.GameResponse
 import com.example.dolananlist.core.data.remote.response.ResultsItem
@@ -19,5 +20,5 @@ class MainViewModel(private val gameUseCase: GameUseCase) : ViewModel() {
     }
 
     fun getGameList() =
-        gameUseCase.getGameList()
+        gameUseCase.getGameList().asLiveData()
 }

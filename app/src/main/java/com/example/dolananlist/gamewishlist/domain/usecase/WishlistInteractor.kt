@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import com.example.dolananlist.core.data.remote.response.GameDetailResponse
 import com.example.dolananlist.gamewishlist.domain.model.Wishlist
 import com.example.dolananlist.gamewishlist.domain.repository.IWishlistRepository
+import kotlinx.coroutines.flow.Flow
 
 class WishlistInteractor(private val wishlistRepository: IWishlistRepository) : WishlistUseCase {
     override fun setGameWishlist(game: GameDetailResponse) =
@@ -14,5 +15,5 @@ class WishlistInteractor(private val wishlistRepository: IWishlistRepository) : 
     override fun deleteGameFromWishlist(game: GameDetailResponse) =
         wishlistRepository.deleteGameFromWishlist(game)
 
-    override fun getWishlist(): LiveData<List<Wishlist>> = wishlistRepository.getWishlist()
+    override fun getWishlist(): Flow<List<Wishlist>> = wishlistRepository.getWishlist()
 }

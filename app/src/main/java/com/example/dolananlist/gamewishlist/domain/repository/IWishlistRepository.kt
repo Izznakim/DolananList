@@ -3,6 +3,7 @@ package com.example.dolananlist.gamewishlist.domain.repository
 import androidx.lifecycle.LiveData
 import com.example.dolananlist.core.data.remote.response.GameDetailResponse
 import com.example.dolananlist.gamewishlist.domain.model.Wishlist
+import kotlinx.coroutines.flow.Flow
 
 interface IWishlistRepository {
     fun setGameWishlist(game: GameDetailResponse)
@@ -11,5 +12,5 @@ interface IWishlistRepository {
 
     fun deleteGameFromWishlist(game: GameDetailResponse)
 
-    fun getWishlist(): LiveData<List<Wishlist>>
+    fun getWishlist(): Flow<List<Wishlist>>
 }

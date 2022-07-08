@@ -9,8 +9,8 @@ import retrofit2.http.Query
 
 interface ApiService {
     @GET("games")
-    fun getGameList(@Query("key") key: String): Call<GameResponse>
+    suspend fun getGameList(@Query("key") key: String): GameResponse
 
     @GET("games/{id}")
-    fun getGameDetail(@Path("id") id: Int, @Query("key") key: String): Call<GameDetailResponse>
+    suspend fun getGameDetail(@Path("id") id: Int, @Query("key") key: String): GameDetailResponse
 }

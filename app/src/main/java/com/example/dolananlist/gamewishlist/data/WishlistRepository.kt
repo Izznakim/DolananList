@@ -9,6 +9,8 @@ import com.example.dolananlist.gamewishlist.data.local.LocalDataSource
 import com.example.dolananlist.gamewishlist.data.local.entity.WishlistEntity
 import com.example.dolananlist.gamewishlist.domain.model.Wishlist
 import com.example.dolananlist.gamewishlist.domain.repository.IWishlistRepository
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.map
 
 class WishlistRepository private constructor(
     private val localDataSource: LocalDataSource,
@@ -34,8 +36,8 @@ class WishlistRepository private constructor(
         }
     }
 
-    override fun getWishlist(): LiveData<List<Wishlist>> {
-        return Transformations.map(localDataSource.getWishlist()) {
+    override fun getWishlist(): Flow<List<Wishlist>> {
+        return localDataSource.getWishlist().map {
             DataMapper.mapEntitiesToDomain(it)
         }
     }

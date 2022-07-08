@@ -8,27 +8,22 @@ import com.example.dolananlist.core.data.remote.response.ResultsItem
 import com.example.dolananlist.core.data.remote.retrofit.ApiResponse
 import com.example.dolananlist.core.domain.repository.IGameRepository
 import com.example.dolananlist.core.utils.AppExecutors
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.emitAll
+import kotlinx.coroutines.flow.flow
 
 class GameRepository private constructor(
     private val remoteDataSource: RemoteDataSource
 ):IGameRepository {
-    private val resultList=MediatorLiveData<ApiResponse<List<ResultsItem>>>()
-    private val result=MediatorLiveData<ApiResponse<GameDetailResponse>>()
 
-    override fun getGameList(): LiveData<ApiResponse<List<ResultsItem>>> {
+    override fun getGameList(): Flow<ApiResponse<List<ResultsItem>>> = flow {
         val game=remoteDataSource.getGameList()
-        resultList.addSource(game){newData ->
-            resultList.value=newData
-        }
-        return resultList
+        emitAll(game)
     }
 
-    override fun getGameDetail(id: Int): LiveData<ApiResponse<GameDetailResponse>> {
+    override fun getGameDetail(id: Int): Flow<ApiResponse<GameDetailResponse>> = flow{
         val detailGame=remoteDataSource.getGameDetail(id)
-        result.addSource(detailGame){newData->
-            result.value=newData
-        }
-        return result
+        emitAll(detailGame)
     }
 
     companion object {
