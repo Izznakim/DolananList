@@ -5,35 +5,54 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.dolananlist.R
 import com.example.dolananlist.core.data.remote.response.ResultsItem
-import com.example.dolananlist.databinding.ActivityMainBinding
+import com.example.dolananlist.core.data.remote.retrofit.ApiResponse
 import com.example.dolananlist.core.ui.GameAdapter
+import com.example.dolananlist.core.ui.ViewModelFactory
+import com.example.dolananlist.databinding.ActivityMainBinding
 import com.example.dolananlist.detailgame.DetailActivity
 import com.example.dolananlist.detailgame.DetailActivity.Companion.GAME_ID
 import com.example.dolananlist.gamewishlist.WishlistActivity
+import com.google.android.material.snackbar.Snackbar
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
-    private val mainViewModel by viewModels<MainViewModel>()
+    private lateinit var mainViewModel: MainViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        val factory = ViewModelFactory.getInstance(this)
+        mainViewModel = ViewModelProvider(this, factory)[MainViewModel::class.java]
+
         binding.rvGame.layoutManager = LinearLayoutManager(this)
         binding.rvGame.setHasFixedSize(true)
 
-        mainViewModel.listGame.observe(this) {
-            setListGame(it)
-        }
-
-        mainViewModel.isLoading.observe(this){
-            showLoading(it)
+        mainViewModel.getGameList().observe(this) {
+            if (it!=null){
+                when(it){
+                    is ApiResponse.Loading->showLoading(true)
+                    is ApiResponse.Success->{
+                        showLoading(false)
+                        val game=it.data
+                        setListGame(game)
+                    }
+                    is ApiResponse.Error->{
+                        showLoading(false)
+                        Snackbar.make(window.decorView,it.errorMessage,Snackbar.LENGTH_SHORT).show()
+                    }
+                    is ApiResponse.Empty->{
+                        showLoading(false)
+                        Snackbar.make(window.decorView,"Data is Empty",Snackbar.LENGTH_SHORT).show()
+                    }
+                }
+            }
         }
     }
 

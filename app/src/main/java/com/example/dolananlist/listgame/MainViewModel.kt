@@ -8,38 +8,16 @@ import com.example.dolananlist.BuildConfig
 import com.example.dolananlist.core.data.remote.response.GameResponse
 import com.example.dolananlist.core.data.remote.response.ResultsItem
 import com.example.dolananlist.core.data.remote.retrofit.ApiConfig
+import com.example.dolananlist.core.domain.usecase.GameUseCase
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class MainViewModel : ViewModel() {
-    private val _listGame = MutableLiveData<List<ResultsItem>>()
-    val listGame: LiveData<List<ResultsItem>> = _listGame
-
-    private val _isLoading = MutableLiveData<Boolean>()
-    val isLoading: LiveData<Boolean> = _isLoading
-
+class MainViewModel(private val gameUseCase: GameUseCase) : ViewModel() {
     init {
-        getListGame()
+        getGameList()
     }
 
-    private fun getListGame() {
-        _isLoading.value = true
-        val client = ApiConfig.getApiService().getGameList(BuildConfig.API_KEY)
-        client.enqueue(object : Callback<GameResponse> {
-            override fun onResponse(call: Call<GameResponse>, response: Response<GameResponse>) {
-                _isLoading.value = false
-                if (response.isSuccessful) {
-                    _listGame.value = response.body()?.results
-                } else {
-                    Log.d("getListGame", "onResponse: Something Error")
-                }
-            }
-
-            override fun onFailure(call: Call<GameResponse>, t: Throwable) {
-                _isLoading.value = false
-                Log.d("getListGame", "onFailure: ${t.message}")
-            }
-        })
-    }
+    fun getGameList() =
+        gameUseCase.getGameList()
 }
