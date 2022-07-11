@@ -10,7 +10,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 
-class RemoteDataSource private constructor(private val apiService: ApiService) {
+class RemoteDataSource (private val apiService: ApiService) {
     fun getGameList(): Flow<ApiResponse<List<ResultsItem>>> {
         return flow {
             try {

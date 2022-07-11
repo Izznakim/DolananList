@@ -5,7 +5,7 @@ import com.example.dolananlist.gamewishlist.data.local.entity.WishlistEntity
 import com.example.dolananlist.gamewishlist.data.local.room.WishlistDao
 import kotlinx.coroutines.flow.Flow
 
-class LocalDataSource private constructor(private val wishlistDao: WishlistDao) {
+class LocalDataSource (private val wishlistDao: WishlistDao) {
     fun insertGameToWishlist(wishlist: List<WishlistEntity>) =
         wishlistDao.insertGameToWishlist(wishlist)
 

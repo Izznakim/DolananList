@@ -12,7 +12,7 @@ import com.example.dolananlist.gamewishlist.domain.repository.IWishlistRepositor
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 
-class WishlistRepository private constructor(
+class WishlistRepository (
     private val localDataSource: LocalDataSource,
     private val appExecutors: AppExecutors
 ) : IWishlistRepository {

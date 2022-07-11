@@ -12,12 +12,12 @@ import com.example.dolananlist.R
 import com.example.dolananlist.core.data.remote.response.GameDetailResponse
 import com.example.dolananlist.core.data.remote.retrofit.ApiResponse
 import com.example.dolananlist.databinding.ActivityDetailBinding
-import com.example.dolananlist.core.ui.ViewModelFactory
 import com.google.android.material.snackbar.Snackbar
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class DetailActivity : AppCompatActivity() {
     private lateinit var binding: ActivityDetailBinding
-    private lateinit var detailViewModel: DetailViewModel
+    private val detailViewModel: DetailViewModel by viewModel()
 
     private var isBeenHere: Boolean = false
 
@@ -28,9 +28,6 @@ class DetailActivity : AppCompatActivity() {
 
         supportActionBar?.title = "Detail Page"
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
-        val factory = ViewModelFactory.getInstance(this)
-        detailViewModel = ViewModelProvider(this, factory)[DetailViewModel::class.java]
 
         if (savedInstanceState != null) {
             val result = savedInstanceState.getBoolean(STATE_RESULT)

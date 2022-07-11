@@ -9,19 +9,17 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.dolananlist.databinding.ActivityMainBinding
 import com.example.dolananlist.core.ui.WishlistAdapter
 import com.example.dolananlist.detailgame.DetailActivity
-import com.example.dolananlist.core.ui.ViewModelFactory
 import com.example.dolananlist.gamewishlist.domain.model.Wishlist
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class WishlistActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
+    private val wishlistViewModel:WishlistViewModel by viewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        val factory: ViewModelFactory = ViewModelFactory.getInstance(this)
-        val wishlistViewModel: WishlistViewModel by viewModels { factory }
 
         supportActionBar?.title = "Wishlist"
 

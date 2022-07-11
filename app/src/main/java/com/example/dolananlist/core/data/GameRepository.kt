@@ -12,7 +12,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.emitAll
 import kotlinx.coroutines.flow.flow
 
-class GameRepository private constructor(
+class GameRepository(
     private val remoteDataSource: RemoteDataSource
 ):IGameRepository {
 
