@@ -1,7 +1,5 @@
 package com.example.dolananlist.gamewishlist.data
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.Transformations
 import com.example.dolananlist.core.data.remote.response.GameDetailResponse
 import com.example.dolananlist.core.utils.AppExecutors
 import com.example.dolananlist.core.utils.DataMapper
@@ -42,15 +40,5 @@ class WishlistRepository (
         }
     }
 
-    companion object {
-        @Volatile
-        private var instance: WishlistRepository? = null
-        fun getInstance(
-            localDataSource: LocalDataSource,
-            appExecutors: AppExecutors
-        ): WishlistRepository =
-            instance ?: synchronized(this) {
-                instance ?: WishlistRepository(localDataSource, appExecutors)
-            }.also { instance = it }
-    }
+    companion object
 }

@@ -1,6 +1,5 @@
 package com.example.dolananlist.gamewishlist.domain.usecase
 
-import androidx.lifecycle.LiveData
 import com.example.dolananlist.core.data.remote.response.GameDetailResponse
 import com.example.dolananlist.gamewishlist.domain.model.Wishlist
 import com.example.dolananlist.gamewishlist.domain.repository.IWishlistRepository

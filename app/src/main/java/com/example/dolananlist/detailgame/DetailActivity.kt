@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.res.ResourcesCompat
-import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.example.dolananlist.R
 import com.example.dolananlist.core.data.remote.response.GameDetailResponse
