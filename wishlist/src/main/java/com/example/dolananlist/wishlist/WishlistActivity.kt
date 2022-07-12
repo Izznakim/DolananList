@@ -1,4 +1,4 @@
-package com.example.dolananlist.gamewishlist
+package com.example.dolananlist.wishlist
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,17 +7,21 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.dolananlist.databinding.ActivityMainBinding
 import com.example.dolananlist.detailgame.DetailActivity
+import com.example.dolananlist.gamewishlist.WishlistAdapter
 import com.example.dolananlist.gamewishlist.domain.model.Wishlist
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import org.koin.core.context.loadKoinModules
 
 class WishlistActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
-    private val wishlistViewModel:WishlistViewModel by viewModel()
+    private val wishlistViewModel: WishlistViewModel by viewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        loadKoinModules(wishlistModule)
 
         supportActionBar?.title = "Wishlist"
 

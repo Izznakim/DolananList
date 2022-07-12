@@ -1,4 +1,4 @@
-package com.example.dolananlist.gamewishlist
+package com.example.dolananlist.wishlist
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData

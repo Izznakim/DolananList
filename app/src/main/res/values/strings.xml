@@ -9,4 +9,5 @@
     <string name="tag">Tag: %1$s</string>
     <string name="list_wishlist">List Wishlist</string>
     <string name="add_to_wishlist">Add to Wishlist</string>
+    <string name="title_wishlist">Wishlist</string>
 </resources>

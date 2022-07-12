@@ -1,6 +1,7 @@
 package com.example.dolananlist.listgame
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -8,13 +9,9 @@ import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.dolananlist.R
-import com.example.dolananlist.core.data.remote.response.ResultsItem
-import com.example.dolananlist.core.data.remote.retrofit.ApiResponse
-import com.example.dolananlist.core.ui.GameAdapter
 import com.example.dolananlist.databinding.ActivityMainBinding
 import com.example.dolananlist.detailgame.DetailActivity
 import com.example.dolananlist.detailgame.DetailActivity.Companion.GAME_ID
-import com.example.dolananlist.gamewishlist.WishlistActivity
 import com.google.android.material.snackbar.Snackbar
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -61,7 +58,8 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.wishlist -> {
-                Intent(this, WishlistActivity::class.java).also {
+                val uri= Uri.parse("dolananlist://wishlist")
+                Intent(Intent.ACTION_VIEW,uri).also {
                     startActivity(it)
                 }
                 true
