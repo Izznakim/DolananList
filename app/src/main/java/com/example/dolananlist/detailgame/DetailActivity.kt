@@ -65,7 +65,7 @@ class DetailActivity : AppCompatActivity() {
         }
     }
 
-    private fun setupView(game: GameDetailResponse) {
+    private fun setupView(game: com.example.dolananlist.core.data.remote.response.GameDetailResponse) {
         var wish = false
         with(binding) {
             Glide.with(this@DetailActivity)

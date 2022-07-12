@@ -5,9 +5,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.dolananlist.R
+import com.example.dolananlist.core.R
 import com.example.dolananlist.core.data.remote.response.ResultsItem
-import com.example.dolananlist.databinding.GameItemBinding
+import com.example.dolananlist.core.databinding.GameItemBinding
 
 class GameAdapter(
     private val listData: List<ResultsItem>,

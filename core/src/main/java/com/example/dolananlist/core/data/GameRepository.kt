@@ -11,7 +11,7 @@ import kotlinx.coroutines.flow.flow
 
 class GameRepository(
     private val remoteDataSource: RemoteDataSource
-):IGameRepository {
+): IGameRepository {
 
     override fun getGameList(): Flow<ApiResponse<List<ResultsItem>>> = flow {
         val game=remoteDataSource.getGameList()

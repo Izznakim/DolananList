@@ -1,6 +1,6 @@
 package com.example.dolananlist.core.data.remote
 
-import com.example.dolananlist.BuildConfig
+import com.example.dolananlist.core.BuildConfig
 import com.example.dolananlist.core.data.remote.response.GameDetailResponse
 import com.example.dolananlist.core.data.remote.response.ResultsItem
 import com.example.dolananlist.core.data.remote.retrofit.ApiResponse

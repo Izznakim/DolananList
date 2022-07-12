@@ -1,8 +1,6 @@
 package com.example.dolananlist.gamewishlist.data
 
-import com.example.dolananlist.core.data.remote.response.GameDetailResponse
-import com.example.dolananlist.core.utils.AppExecutors
-import com.example.dolananlist.core.utils.DataMapper
+import com.example.dolananlist.gamewishlist.utils.DataMapper
 import com.example.dolananlist.gamewishlist.data.local.LocalDataSource
 import com.example.dolananlist.gamewishlist.data.local.entity.WishlistEntity
 import com.example.dolananlist.gamewishlist.domain.model.Wishlist
@@ -12,9 +10,9 @@ import kotlinx.coroutines.flow.map
 
 class WishlistRepository (
     private val localDataSource: LocalDataSource,
-    private val appExecutors: AppExecutors
+    private val appExecutors: com.example.dolananlist.core.utils.AppExecutors
 ) : IWishlistRepository {
-    override fun setGameWishlist(game: GameDetailResponse) {
+    override fun setGameWishlist(game: com.example.dolananlist.core.data.remote.response.GameDetailResponse) {
         val wishlistEntity = DataMapper.mapResponsesToEntities(game)
         val wishlist = ArrayList<WishlistEntity>()
         wishlist.add(wishlistEntity)
@@ -27,7 +25,7 @@ class WishlistRepository (
         return localDataSource.checkExistOrNot(id)
     }
 
-    override fun deleteGameFromWishlist(game: GameDetailResponse) {
+    override fun deleteGameFromWishlist(game: com.example.dolananlist.core.data.remote.response.GameDetailResponse) {
         val wishlistEntity = DataMapper.mapResponsesToEntities(game)
         appExecutors.diskIO.execute {
             localDataSource.deleteGameFromWishlist(wishlistEntity)

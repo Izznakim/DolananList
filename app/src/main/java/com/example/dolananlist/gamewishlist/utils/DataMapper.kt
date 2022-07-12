@@ -1,7 +1,7 @@
-package com.example.dolananlist.core.utils
+package com.example.dolananlist.gamewishlist.utils
 
-import com.example.dolananlist.gamewishlist.data.local.entity.WishlistEntity
 import com.example.dolananlist.core.data.remote.response.GameDetailResponse
+import com.example.dolananlist.gamewishlist.data.local.entity.WishlistEntity
 import com.example.dolananlist.gamewishlist.domain.model.Wishlist
 
 object DataMapper {

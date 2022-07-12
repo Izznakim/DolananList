@@ -4,7 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
 import com.example.dolananlist.core.domain.usecase.GameUseCase
 
-class MainViewModel(private val gameUseCase: GameUseCase) : ViewModel() {
+class MainViewModel(private val gameUseCase: com.example.dolananlist.core.domain.usecase.GameUseCase) : ViewModel() {
     init {
         getGameList()
     }

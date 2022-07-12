@@ -12,7 +12,11 @@ import org.koin.dsl.module
 
 val useCaseModule= module {
     factory<WishlistUseCase> { WishlistInteractor(get()) }
-    factory<GameUseCase> { GameInteractor(get()) }
+    factory<com.example.dolananlist.core.domain.usecase.GameUseCase> {
+        com.example.dolananlist.core.domain.usecase.GameInteractor(
+            get()
+        )
+    }
 }
 
 val viewModelModule= module {

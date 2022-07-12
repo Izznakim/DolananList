@@ -33,17 +33,17 @@ class MainActivity : AppCompatActivity() {
         mainViewModel.getGameList().observe(this) {
             if (it!=null){
                 when(it){
-                    is ApiResponse.Loading->showLoading(true)
-                    is ApiResponse.Success->{
+                    is com.example.dolananlist.core.data.remote.retrofit.ApiResponse.Loading->showLoading(true)
+                    is com.example.dolananlist.core.data.remote.retrofit.ApiResponse.Success->{
                         showLoading(false)
                         val game=it.data
                         setListGame(game)
                     }
-                    is ApiResponse.Error->{
+                    is com.example.dolananlist.core.data.remote.retrofit.ApiResponse.Error->{
                         showLoading(false)
                         Snackbar.make(window.decorView,it.errorMessage,Snackbar.LENGTH_SHORT).show()
                     }
-                    is ApiResponse.Empty->{
+                    is com.example.dolananlist.core.data.remote.retrofit.ApiResponse.Empty->{
                         showLoading(false)
                         Snackbar.make(window.decorView,"Data is Empty",Snackbar.LENGTH_SHORT).show()
                     }
@@ -70,12 +70,12 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun setListGame(games: List<ResultsItem>) {
-        val listGame = ArrayList<ResultsItem>()
+    private fun setListGame(games: List<com.example.dolananlist.core.data.remote.response.ResultsItem>) {
+        val listGame = ArrayList<com.example.dolananlist.core.data.remote.response.ResultsItem>()
         for (game in games) {
             listGame.add(game)
         }
-        val gameAdapter = GameAdapter(listGame) {
+        val gameAdapter = com.example.dolananlist.core.ui.GameAdapter(listGame) {
             startActivity(
                 Intent(this, DetailActivity::class.java).also { intent ->
                     intent.putExtra(GAME_ID, it.id)
