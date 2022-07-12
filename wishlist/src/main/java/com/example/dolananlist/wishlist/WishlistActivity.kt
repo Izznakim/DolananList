@@ -7,8 +7,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.dolananlist.databinding.ActivityMainBinding
 import com.example.dolananlist.detailgame.DetailActivity
-import com.example.dolananlist.gamewishlist.WishlistAdapter
-import com.example.dolananlist.gamewishlist.domain.model.Wishlist
+import com.example.dolananlist.core.ui.WishlistAdapter
+import com.example.dolananlist.core.domain.model.Wishlist
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.context.loadKoinModules
 

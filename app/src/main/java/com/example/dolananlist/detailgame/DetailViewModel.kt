@@ -2,7 +2,7 @@ package com.example.dolananlist.detailgame
 
 import androidx.lifecycle.*
 import com.example.dolananlist.core.data.remote.response.GameDetailResponse
-import com.example.dolananlist.gamewishlist.domain.usecase.WishlistUseCase
+import com.example.dolananlist.core.domain.usecase.WishlistUseCase
 import kotlinx.coroutines.launch
 
 class DetailViewModel(private val wishlistUseCase: WishlistUseCase, private val gameUseCase: com.example.dolananlist.core.domain.usecase.GameUseCase) : ViewModel() {

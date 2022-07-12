@@ -5,8 +5,8 @@ import com.example.dolananlist.core.di.networkModule
 import com.example.dolananlist.core.di.repositoryCoreModule
 import com.example.dolananlist.di.useCaseModule
 import com.example.dolananlist.di.viewModelModule
-import com.example.dolananlist.gamewishlist.di.databaseModule
-import com.example.dolananlist.gamewishlist.di.repositoryWishlistModule
+import com.example.dolananlist.core.di.databaseModule
+import com.example.dolananlist.core.di.repositoryWishlistModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin

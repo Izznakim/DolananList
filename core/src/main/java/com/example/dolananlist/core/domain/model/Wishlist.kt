@@ -1,4 +1,4 @@
-package com.example.dolananlist.gamewishlist.domain.model
+package com.example.dolananlist.core.domain.model
 
 data class Wishlist(
     val id: Int,

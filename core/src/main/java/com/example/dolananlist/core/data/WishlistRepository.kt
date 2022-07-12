@@ -1,16 +1,17 @@
-package com.example.dolananlist.gamewishlist.data
+package com.example.dolananlist.core.data
 
-import com.example.dolananlist.gamewishlist.utils.DataMapper
-import com.example.dolananlist.gamewishlist.data.local.LocalDataSource
-import com.example.dolananlist.gamewishlist.data.local.entity.WishlistEntity
-import com.example.dolananlist.gamewishlist.domain.model.Wishlist
-import com.example.dolananlist.gamewishlist.domain.repository.IWishlistRepository
+import com.example.dolananlist.core.data.local.LocalDataSource
+import com.example.dolananlist.core.data.local.entity.WishlistEntity
+import com.example.dolananlist.core.domain.model.Wishlist
+import com.example.dolananlist.core.domain.repository.IWishlistRepository
+import com.example.dolananlist.core.utils.AppExecutors
+import com.example.dolananlist.core.utils.DataMapper
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 
-class WishlistRepository (
+class WishlistRepository(
     private val localDataSource: LocalDataSource,
-    private val appExecutors: com.example.dolananlist.core.utils.AppExecutors
+    private val appExecutors: AppExecutors
 ) : IWishlistRepository {
     override fun setGameWishlist(game: com.example.dolananlist.core.data.remote.response.GameDetailResponse) {
         val wishlistEntity = DataMapper.mapResponsesToEntities(game)

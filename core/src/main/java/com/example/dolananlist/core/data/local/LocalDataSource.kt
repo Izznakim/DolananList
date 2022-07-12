@@ -1,7 +1,7 @@
-package com.example.dolananlist.gamewishlist.data.local
+package com.example.dolananlist.core.data.local
 
-import com.example.dolananlist.gamewishlist.data.local.entity.WishlistEntity
-import com.example.dolananlist.gamewishlist.data.local.room.WishlistDao
+import com.example.dolananlist.core.data.local.entity.WishlistEntity
+import com.example.dolananlist.core.data.local.room.WishlistDao
 import kotlinx.coroutines.flow.Flow
 
 class LocalDataSource (private val wishlistDao: WishlistDao) {

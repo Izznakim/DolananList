@@ -1,4 +1,4 @@
-package com.example.dolananlist.gamewishlist
+package com.example.dolananlist.core.ui
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.dolananlist.core.R
 import com.example.dolananlist.core.databinding.GameItemBinding
-import com.example.dolananlist.gamewishlist.domain.model.Wishlist
+import com.example.dolananlist.core.domain.model.Wishlist
 
 class WishlistAdapter(
     private val wishlist: List<Wishlist>,

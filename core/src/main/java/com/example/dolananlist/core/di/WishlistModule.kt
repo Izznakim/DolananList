@@ -1,10 +1,10 @@
-package com.example.dolananlist.gamewishlist.di
+package com.example.dolananlist.core.di
 
 import androidx.room.Room
-import com.example.dolananlist.gamewishlist.data.WishlistRepository
-import com.example.dolananlist.gamewishlist.data.local.LocalDataSource
-import com.example.dolananlist.gamewishlist.data.local.room.WishlistDatabase
-import com.example.dolananlist.gamewishlist.domain.repository.IWishlistRepository
+import com.example.dolananlist.core.data.WishlistRepository
+import com.example.dolananlist.core.data.local.LocalDataSource
+import com.example.dolananlist.core.data.local.room.WishlistDatabase
+import com.example.dolananlist.core.domain.repository.IWishlistRepository
 import org.koin.android.ext.koin.androidContext
 import org.koin.dsl.module
 
