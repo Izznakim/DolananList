@@ -1,7 +1,9 @@
 package com.example.dolananlist.core.data
 
-import com.example.dolananlist.core.data.local.LocalDataSource
-import com.example.dolananlist.core.data.local.entity.WishlistEntity
+import com.example.dolananlist.core.data.source.local.LocalDataSource
+import com.example.dolananlist.core.data.source.local.entity.WishlistEntity
+import com.example.dolananlist.core.data.source.remote.response.GameDetailResponse
+import com.example.dolananlist.core.domain.model.GameDetail
 import com.example.dolananlist.core.domain.model.Wishlist
 import com.example.dolananlist.core.domain.repository.IWishlistRepository
 import com.example.dolananlist.core.utils.AppExecutors
@@ -13,8 +15,8 @@ class WishlistRepository(
     private val localDataSource: LocalDataSource,
     private val appExecutors: AppExecutors
 ) : IWishlistRepository {
-    override fun setGameWishlist(game: com.example.dolananlist.core.data.remote.response.GameDetailResponse) {
-        val wishlistEntity = DataMapper.mapResponsesToEntities(game)
+    override fun setGameWishlist(game: GameDetail) {
+        val wishlistEntity = DataMapper.mapDomainToEntities(game)
         val wishlist = ArrayList<WishlistEntity>()
         wishlist.add(wishlistEntity)
         appExecutors.diskIO.execute {
@@ -26,8 +28,8 @@ class WishlistRepository(
         return localDataSource.checkExistOrNot(id)
     }
 
-    override fun deleteGameFromWishlist(game: com.example.dolananlist.core.data.remote.response.GameDetailResponse) {
-        val wishlistEntity = DataMapper.mapResponsesToEntities(game)
+    override fun deleteGameFromWishlist(game: GameDetail) {
+        val wishlistEntity = DataMapper.mapDomainToEntities(game)
         appExecutors.diskIO.execute {
             localDataSource.deleteGameFromWishlist(wishlistEntity)
         }

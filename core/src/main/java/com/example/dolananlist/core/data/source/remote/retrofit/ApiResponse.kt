@@ -1,4 +1,4 @@
-package com.example.dolananlist.core.data.remote.retrofit
+package com.example.dolananlist.core.data.source.remote.retrofit
 
 sealed class ApiResponse<out R> private constructor(){
     data class Success<out T>(val data: T) : ApiResponse<T>()

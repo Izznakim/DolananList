@@ -3,13 +3,14 @@ package com.example.dolananlist.detailgame
 import android.graphics.text.LineBreaker.JUSTIFICATION_MODE_INTER_WORD
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.res.ResourcesCompat
 import com.bumptech.glide.Glide
 import com.example.dolananlist.R
-import com.example.dolananlist.core.data.remote.response.GameDetailResponse
-import com.example.dolananlist.core.data.remote.retrofit.ApiResponse
+import com.example.dolananlist.core.data.source.remote.retrofit.ApiResponse
+import com.example.dolananlist.core.domain.model.GameDetail
 import com.example.dolananlist.databinding.ActivityDetailBinding
 import com.google.android.material.snackbar.Snackbar
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -44,6 +45,7 @@ class DetailActivity : AppCompatActivity() {
 
     private fun setupViewModel(id:Int) {
         detailViewModel.getGameDetail(id).observe(this@DetailActivity) {
+            Log.d("GameRepository", "setupViewModel: $it")
             if (it!=null) {
                 when(it){
                     is ApiResponse.Loading->showLoading(true)
@@ -65,8 +67,7 @@ class DetailActivity : AppCompatActivity() {
         }
     }
 
-    private fun setupView(game: com.example.dolananlist.core.data.remote.response.GameDetailResponse) {
-        var wish = false
+    private fun setupView(game: GameDetail) {
         with(binding) {
             Glide.with(this@DetailActivity)
                 .load(game.backgroundImage)
@@ -95,6 +96,13 @@ class DetailActivity : AppCompatActivity() {
             tvTag.text =
                 resources.getString(R.string.tag, game.tags.joinToString { it.name })
 
+            fabViewCondition(game)
+        }
+    }
+
+    private fun fabViewCondition(game: GameDetail) {
+        var wish = false
+        with(binding) {
             detailViewModel.checkExistOrNot(game.id)
             detailViewModel.isWish.observe(this@DetailActivity) { isWish ->
                 if (isWish) {

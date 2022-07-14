@@ -1,7 +1,7 @@
-package com.example.dolananlist.core.data.local.room
+package com.example.dolananlist.core.data.source.local.room
 
 import androidx.room.*
-import com.example.dolananlist.core.data.local.entity.WishlistEntity
+import com.example.dolananlist.core.data.source.local.entity.WishlistEntity
 import kotlinx.coroutines.flow.Flow
 
 @Dao

@@ -170,7 +170,7 @@
             android:layout_width="0dp"
             android:layout_height="1dp"
             android:layout_marginTop="8dp"
-            android:background="#000000"
+            android:background="#6A6A6A"
             android:visibility="gone"
             app:layout_constraintEnd_toEndOf="@+id/tv_name"
             app:layout_constraintStart_toStartOf="@+id/tv_name"

@@ -1,7 +1,7 @@
-package com.example.dolananlist.core.data.remote.retrofit
+package com.example.dolananlist.core.data.source.remote.retrofit
 
-import com.example.dolananlist.core.data.remote.response.GameDetailResponse
-import com.example.dolananlist.core.data.remote.response.GameResponse
+import com.example.dolananlist.core.data.source.remote.response.GameDetailResponse
+import com.example.dolananlist.core.data.source.remote.response.GameResponse
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query

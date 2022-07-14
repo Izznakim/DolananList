@@ -10,6 +10,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.dolananlist.R
+import com.example.dolananlist.core.data.source.remote.response.ResultsItem
+import com.example.dolananlist.core.data.source.remote.retrofit.ApiResponse
 import com.example.dolananlist.databinding.ActivityMainBinding
 import com.example.dolananlist.detailgame.DetailActivity
 import com.example.dolananlist.detailgame.DetailActivity.Companion.GAME_ID
@@ -32,17 +34,17 @@ class MainActivity : AppCompatActivity() {
         mainViewModel.getGameList().observe(this) {
             if (it!=null){
                 when(it){
-                    is com.example.dolananlist.core.data.remote.retrofit.ApiResponse.Loading->showLoading(true)
-                    is com.example.dolananlist.core.data.remote.retrofit.ApiResponse.Success->{
+                    is ApiResponse.Loading->showLoading(true)
+                    is ApiResponse.Success->{
                         showLoading(false)
                         val game=it.data
                         setListGame(game)
                     }
-                    is com.example.dolananlist.core.data.remote.retrofit.ApiResponse.Error->{
+                    is ApiResponse.Error->{
                         showLoading(false)
                         Snackbar.make(window.decorView,it.errorMessage,Snackbar.LENGTH_SHORT).show()
                     }
-                    is com.example.dolananlist.core.data.remote.retrofit.ApiResponse.Empty->{
+                    is ApiResponse.Empty->{
                         showLoading(false)
                         Snackbar.make(window.decorView,"Data is Empty",Snackbar.LENGTH_SHORT).show()
                     }
@@ -70,8 +72,8 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun setListGame(games: List<com.example.dolananlist.core.data.remote.response.ResultsItem>) {
-        val listGame = ArrayList<com.example.dolananlist.core.data.remote.response.ResultsItem>()
+    private fun setListGame(games: List<ResultsItem>) {
+        val listGame = ArrayList<ResultsItem>()
         for (game in games) {
             listGame.add(game)
         }

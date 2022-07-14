@@ -2,8 +2,8 @@ package com.example.dolananlist.core.di
 
 import com.example.dolananlist.core.BuildConfig
 import com.example.dolananlist.core.data.GameRepository
-import com.example.dolananlist.core.data.remote.RemoteDataSource
-import com.example.dolananlist.core.data.remote.retrofit.ApiService
+import com.example.dolananlist.core.data.source.remote.RemoteDataSource
+import com.example.dolananlist.core.data.source.remote.retrofit.ApiService
 import com.example.dolananlist.core.domain.repository.IGameRepository
 import com.example.dolananlist.core.utils.AppExecutors
 import okhttp3.OkHttpClient
@@ -36,5 +36,5 @@ val networkModule = module {
 val repositoryCoreModule = module {
     single { RemoteDataSource(get()) }
     factory { AppExecutors() }
-    single<IGameRepository> { GameRepository(get()) }
+    single<IGameRepository> { GameRepository(get(), get()) }
 }

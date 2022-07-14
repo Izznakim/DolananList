@@ -1,10 +1,11 @@
-package com.example.dolananlist.core.data.remote
+package com.example.dolananlist.core.data.source.remote
 
+import android.util.Log
 import com.example.dolananlist.core.BuildConfig
-import com.example.dolananlist.core.data.remote.response.GameDetailResponse
-import com.example.dolananlist.core.data.remote.response.ResultsItem
-import com.example.dolananlist.core.data.remote.retrofit.ApiResponse
-import com.example.dolananlist.core.data.remote.retrofit.ApiService
+import com.example.dolananlist.core.data.source.remote.response.GameDetailResponse
+import com.example.dolananlist.core.data.source.remote.response.ResultsItem
+import com.example.dolananlist.core.data.source.remote.retrofit.ApiResponse
+import com.example.dolananlist.core.data.source.remote.retrofit.ApiService
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
@@ -37,6 +38,4 @@ class RemoteDataSource (private val apiService: ApiService) {
             }
         }.flowOn(Dispatchers.IO)
     }
-
-    companion object
 }
