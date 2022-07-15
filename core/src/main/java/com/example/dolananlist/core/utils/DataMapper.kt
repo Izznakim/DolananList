@@ -8,6 +8,7 @@ import com.example.dolananlist.core.domain.model.Game
 import com.example.dolananlist.core.domain.model.GameDetail
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.debounce
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 
@@ -49,6 +50,7 @@ object DataMapper {
                             )
                             emit(ApiResponse.Success(gameDetail))
                         }
+                        is ApiResponse.Error->emit(ApiResponse.Error(apiResponse.errorMessage))
                         else -> {}
                     }
                 }
@@ -79,6 +81,7 @@ object DataMapper {
                             })
                             emit(ApiResponse.Success(gameList))
                         }
+                        is ApiResponse.Error->emit(ApiResponse.Error(apiResponse.errorMessage))
                         else -> {}
                     }
                 }
