@@ -35,6 +35,5 @@ val networkModule = module {
 
 val repositoryCoreModule = module {
     single { RemoteDataSource(get()) }
-    factory { AppExecutors() }
-    single<IGameRepository> { GameRepository(get(), get()) }
+    single<IGameRepository> { GameRepository(get()) }
 }

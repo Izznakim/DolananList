@@ -12,6 +12,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.dolananlist.R
 import com.example.dolananlist.core.data.source.remote.response.ResultsItem
 import com.example.dolananlist.core.data.source.remote.retrofit.ApiResponse
+import com.example.dolananlist.core.domain.model.Game
+import com.example.dolananlist.core.ui.GameAdapter
 import com.example.dolananlist.databinding.ActivityMainBinding
 import com.example.dolananlist.detailgame.DetailActivity
 import com.example.dolananlist.detailgame.DetailActivity.Companion.GAME_ID
@@ -72,12 +74,12 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun setListGame(games: List<ResultsItem>) {
-        val listGame = ArrayList<ResultsItem>()
+    private fun setListGame(games: List<Game>) {
+        val listGame = ArrayList<Game>()
         for (game in games) {
             listGame.add(game)
         }
-        val gameAdapter = com.example.dolananlist.core.ui.GameAdapter(listGame) {
+        val gameAdapter = GameAdapter(listGame) {
             startActivity(
                 Intent(this, DetailActivity::class.java).also { intent ->
                     intent.putExtra(GAME_ID, it.id)

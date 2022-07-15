@@ -2,9 +2,8 @@ package com.example.dolananlist.core.data
 
 import com.example.dolananlist.core.data.source.local.LocalDataSource
 import com.example.dolananlist.core.data.source.local.entity.WishlistEntity
-import com.example.dolananlist.core.data.source.remote.response.GameDetailResponse
 import com.example.dolananlist.core.domain.model.GameDetail
-import com.example.dolananlist.core.domain.model.Wishlist
+import com.example.dolananlist.core.domain.model.Game
 import com.example.dolananlist.core.domain.repository.IWishlistRepository
 import com.example.dolananlist.core.utils.AppExecutors
 import com.example.dolananlist.core.utils.DataMapper
@@ -35,11 +34,9 @@ class WishlistRepository(
         }
     }
 
-    override fun getWishlist(): Flow<List<Wishlist>> {
+    override fun getWishlist(): Flow<List<Game>> {
         return localDataSource.getWishlist().map {
             DataMapper.mapEntitiesToDomain(it)
         }
     }
-
-    companion object
 }

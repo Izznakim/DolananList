@@ -7,17 +7,17 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.dolananlist.core.R
 import com.example.dolananlist.core.databinding.GameItemBinding
-import com.example.dolananlist.core.domain.model.Wishlist
+import com.example.dolananlist.core.domain.model.Game
 
 class WishlistAdapter(
-    private val wishlist: List<Wishlist>,
-    private val onItemClicked: (Wishlist) -> Unit
+    private val wishlist: List<Game>,
+    private val onItemClicked: (Game) -> Unit
 ) :
     RecyclerView.Adapter<WishlistAdapter.ViewHolder>() {
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val binding = GameItemBinding.bind(itemView)
-        fun bind(wish: Wishlist) {
+        fun bind(wish: Game) {
             with(binding) {
                 Glide.with(itemView)
                     .load(wish.backgroundImage)

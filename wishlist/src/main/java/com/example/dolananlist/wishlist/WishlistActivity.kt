@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.dolananlist.databinding.ActivityMainBinding
 import com.example.dolananlist.detailgame.DetailActivity
 import com.example.dolananlist.core.ui.WishlistAdapter
-import com.example.dolananlist.core.domain.model.Wishlist
+import com.example.dolananlist.core.domain.model.Game
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.context.loadKoinModules
 
@@ -23,7 +23,7 @@ class WishlistActivity : AppCompatActivity() {
 
         loadKoinModules(wishlistModule)
 
-        supportActionBar?.title = "Wishlist"
+        supportActionBar?.title = "Game"
 
         with(binding) {
             progressBar.visibility = View.GONE
@@ -36,8 +36,8 @@ class WishlistActivity : AppCompatActivity() {
         }
     }
 
-    private fun setWishlist(wishlist: List<Wishlist>): WishlistAdapter {
-        val listWish = ArrayList<Wishlist>()
+    private fun setWishlist(wishlist: List<Game>): WishlistAdapter {
+        val listWish = ArrayList<Game>()
         for (game in wishlist) {
             listWish.add(game)
         }

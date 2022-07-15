@@ -1,8 +1,7 @@
 package com.example.dolananlist.core.domain.repository
 
-import com.example.dolananlist.core.data.source.remote.response.GameDetailResponse
 import com.example.dolananlist.core.domain.model.GameDetail
-import com.example.dolananlist.core.domain.model.Wishlist
+import com.example.dolananlist.core.domain.model.Game
 import kotlinx.coroutines.flow.Flow
 
 interface IWishlistRepository {
@@ -12,5 +11,5 @@ interface IWishlistRepository {
 
     fun deleteGameFromWishlist(game: GameDetail)
 
-    fun getWishlist(): Flow<List<Wishlist>>
+    fun getWishlist(): Flow<List<Game>>
 }

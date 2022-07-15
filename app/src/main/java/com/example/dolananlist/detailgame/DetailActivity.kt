@@ -76,10 +76,10 @@ class DetailActivity : AppCompatActivity() {
             if (game.alternativeNames.isEmpty()) {
                 tvAltName.visibility = View.GONE
             } else {
-                tvAltName.text = game.alternativeNames.joinToString { it }
+                tvAltName.text = game.alternativeNames
             }
-            tvGenre.text = game.genres.joinToString { it.name }
-            tvPlatform.text = game.platforms.joinToString { it.platform.name }
+            tvGenre.text = game.genres
+            tvPlatform.text = game.platforms
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 tvDesc.justificationMode = JUSTIFICATION_MODE_INTER_WORD
             }
@@ -88,13 +88,13 @@ class DetailActivity : AppCompatActivity() {
             tvDeveloper.text =
                 resources.getString(
                     R.string.developer,
-                    game.developers.joinToString { it.name })
+                    game.developers)
             tvPublisher.text =
                 resources.getString(
                     R.string.publisher,
-                    game.publishers.joinToString { it.name })
+                    game.publishers)
             tvTag.text =
-                resources.getString(R.string.tag, game.tags.joinToString { it.name })
+                resources.getString(R.string.tag, game.tags)
 
             fabViewCondition(game)
         }

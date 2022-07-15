@@ -1,8 +1,7 @@
 package com.example.dolananlist.core.domain.usecase
 
-import com.example.dolananlist.core.data.source.remote.response.GameDetailResponse
 import com.example.dolananlist.core.domain.model.GameDetail
-import com.example.dolananlist.core.domain.model.Wishlist
+import com.example.dolananlist.core.domain.model.Game
 import com.example.dolananlist.core.domain.repository.IWishlistRepository
 import kotlinx.coroutines.flow.Flow
 
@@ -15,5 +14,5 @@ class WishlistInteractor(private val wishlistRepository: IWishlistRepository) : 
     override fun deleteGameFromWishlist(game: GameDetail) =
         wishlistRepository.deleteGameFromWishlist(game)
 
-    override fun getWishlist(): Flow<List<Wishlist>> = wishlistRepository.getWishlist()
+    override fun getWishlist(): Flow<List<Game>> = wishlistRepository.getWishlist()
 }

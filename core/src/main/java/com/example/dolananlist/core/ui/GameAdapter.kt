@@ -8,23 +8,24 @@ import com.bumptech.glide.Glide
 import com.example.dolananlist.core.R
 import com.example.dolananlist.core.data.source.remote.response.ResultsItem
 import com.example.dolananlist.core.databinding.GameItemBinding
+import com.example.dolananlist.core.domain.model.Game
 
 class GameAdapter(
-    private val listData: List<ResultsItem>,
-    private val onItemClicked: (ResultsItem) -> Unit
+    private val listData: List<Game>,
+    private val onItemClicked: (Game) -> Unit
 ) :
     RecyclerView.Adapter<GameAdapter.ViewHolder>() {
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val binding = GameItemBinding.bind(itemView)
-        fun bind(data: ResultsItem) {
+        fun bind(data: Game) {
             with(binding) {
                 Glide.with(itemView)
                     .load(data.backgroundImage)
                     .into(imgGame)
                 tvName.text = data.name
-                tvPlatform.text = data.parentPlatforms.joinToString { it.platform.name }
-                tvGenre.text = data.genres.joinToString { it.name }
+                tvPlatform.text = data.platforms
+                tvGenre.text = data.genres
             }
         }
     }

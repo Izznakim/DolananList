@@ -14,6 +14,4 @@ class LocalDataSource (private val wishlistDao: WishlistDao) {
 
     fun deleteGameFromWishlist(wishlist: WishlistEntity) =
         wishlistDao.deleteGameFromWishlist(wishlist)
-
-    companion object
 }
