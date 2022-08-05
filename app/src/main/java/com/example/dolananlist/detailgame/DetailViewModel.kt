@@ -10,7 +10,7 @@ import kotlinx.coroutines.launch
 class DetailViewModel(private val wishlistUseCase: WishlistUseCase, private val gameUseCase: GameUseCase) : ViewModel() {
 
     private val _isWish = MutableLiveData<Boolean>()
-    val isWish: LiveData<Boolean> = _isWish
+    val isWish: LiveData<Boolean> get() = _isWish
 
     fun getGameDetail(id: Int) =
         gameUseCase.getGameDetail(id).asLiveData()
