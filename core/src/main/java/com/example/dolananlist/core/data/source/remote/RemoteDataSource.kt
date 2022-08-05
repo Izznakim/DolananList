@@ -15,7 +15,7 @@ class RemoteDataSource (private val apiService: ApiService) {
     fun getGameList(): Flow<ApiResponse<List<ResultsItem>>> {
         return flow {
             try {
-                val response = apiService.getGameList(BuildConfig.API_KEY)
+                val response = apiService.getGameList("380488d9a4a4466c9a89fa586b0617ab")
                 val dataArray = response.results
                 if (dataArray.isNotEmpty()) {
                     emit(ApiResponse.Success(dataArray))
@@ -31,7 +31,7 @@ class RemoteDataSource (private val apiService: ApiService) {
     fun getGameDetail(id: Int): Flow<ApiResponse<GameDetailResponse>> {
         return flow {
             try {
-                val response = apiService.getGameDetail(id, BuildConfig.API_KEY)
+                val response = apiService.getGameDetail(id, "380488d9a4a4466c9a89fa586b0617ab")
                 emit(ApiResponse.Success(response))
             } catch (e: Exception) {
                 emit(ApiResponse.Error(e.toString()))

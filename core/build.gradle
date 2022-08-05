@@ -6,10 +6,6 @@ plugins {
 }
 apply from: '../shared_dependencies.gradle'
 
-def localPropertiesFile = rootProject.file("local.properties")
-def localProperties = new Properties()
-localProperties.load(new FileInputStream(localPropertiesFile))
-
 android {
     compileSdk 32
 
@@ -19,7 +15,6 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
-        buildConfigField "String", "API_KEY", localProperties['API_KEY']
     }
 
     buildTypes {
@@ -55,5 +50,5 @@ dependencies {
 //    Coroutine Flow
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.1"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.1"
-    api "androidx.lifecycle:lifecycle-livedata-ktx:2.5.0"
+    api "androidx.lifecycle:lifecycle-livedata-ktx:2.5.1"
 }
