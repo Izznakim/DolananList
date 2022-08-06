@@ -1,7 +1,5 @@
 package com.example.dolananlist.core.data.source.remote
 
-import android.util.Log
-import com.example.dolananlist.core.BuildConfig
 import com.example.dolananlist.core.data.source.remote.response.GameDetailResponse
 import com.example.dolananlist.core.data.source.remote.response.ResultsItem
 import com.example.dolananlist.core.data.source.remote.retrofit.ApiResponse

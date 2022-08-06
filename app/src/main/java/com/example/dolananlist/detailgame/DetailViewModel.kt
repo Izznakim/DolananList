@@ -1,7 +1,6 @@
 package com.example.dolananlist.detailgame
 
 import androidx.lifecycle.*
-import com.example.dolananlist.core.data.source.remote.response.GameDetailResponse
 import com.example.dolananlist.core.domain.model.GameDetail
 import com.example.dolananlist.core.domain.usecase.GameUseCase
 import com.example.dolananlist.core.domain.usecase.WishlistUseCase

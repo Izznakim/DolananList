@@ -23,8 +23,6 @@ class WishlistActivity : AppCompatActivity() {
 
         loadKoinModules(wishlistModule)
 
-        supportActionBar?.title = "Game"
-
         with(binding) {
             progressBar.visibility = View.GONE
             rvGame.layoutManager = LinearLayoutManager(this@WishlistActivity)

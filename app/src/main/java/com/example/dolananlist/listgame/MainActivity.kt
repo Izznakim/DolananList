@@ -10,7 +10,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.dolananlist.R
-import com.example.dolananlist.core.data.source.remote.response.ResultsItem
 import com.example.dolananlist.core.data.source.remote.retrofit.ApiResponse
 import com.example.dolananlist.core.domain.model.Game
 import com.example.dolananlist.core.ui.GameAdapter

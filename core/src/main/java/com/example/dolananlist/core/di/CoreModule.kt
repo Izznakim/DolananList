@@ -5,7 +5,6 @@ import com.example.dolananlist.core.data.GameRepository
 import com.example.dolananlist.core.data.source.remote.RemoteDataSource
 import com.example.dolananlist.core.data.source.remote.retrofit.ApiService
 import com.example.dolananlist.core.domain.repository.IGameRepository
-import com.example.dolananlist.core.utils.AppExecutors
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.dsl.module
