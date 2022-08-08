@@ -21,6 +21,8 @@ class WishlistActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        supportActionBar?.title = "Wishlist"
+
         loadKoinModules(wishlistModule)
 
         with(binding) {

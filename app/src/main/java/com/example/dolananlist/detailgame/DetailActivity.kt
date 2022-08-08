@@ -12,7 +12,6 @@ import com.example.dolananlist.R
 import com.example.dolananlist.core.data.source.remote.retrofit.ApiResponse
 import com.example.dolananlist.core.domain.model.GameDetail
 import com.example.dolananlist.databinding.ActivityDetailBinding
-import com.google.android.material.snackbar.Snackbar
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class DetailActivity : AppCompatActivity() {
@@ -54,13 +53,15 @@ class DetailActivity : AppCompatActivity() {
                         val game=it.data
                         setupView(game)
                     }
-                    is ApiResponse.Empty->{
+                    is ApiResponse.Empty -> {
                         showLoading(false)
-                        Snackbar.make(window.decorView,"Data is Empty", Snackbar.LENGTH_SHORT).show()
+                        binding.tvError.visibility = View.VISIBLE
+                        binding.tvError.text = "Data is Empty"
                     }
-                    is ApiResponse.Error->{
+                    is ApiResponse.Error -> {
                         showLoading(false)
-                        Snackbar.make(window.decorView,it.errorMessage,Snackbar.LENGTH_SHORT).show()
+                        binding.tvError.visibility = View.VISIBLE
+                        binding.tvError.text = it.errorMessage
                     }
                 }
             }
